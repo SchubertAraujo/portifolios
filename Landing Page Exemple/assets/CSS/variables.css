@@ -1,0 +1,9 @@
+
+/* criação de variaveis */
+:root {
+    --primary-color: #151740;
+    --white-color: #ffffff;
+    --ligth-gray-color: rgb(236, 236, 236);
+    --secondary-color: tomato;
+    --gap : 3rem;
+}
