@@ -2,14 +2,52 @@ function getNumber(value){
     document.getElementById('display').value += value   
 }
 
-function getOperation(operator){
+function getOperation(action){
+    clearAction = action == 'clear'
+    equalAction = action == '='
+    zeroValue = document.getElementById('display').value == '0'
+    emptyValue = document.getElementById('display').value == ''
+    endsinOperator = endsWithOperator(document.getElementById('display').value)
 
-    if (operator == 'clear') 
-        document.getElementById('display').value = ''
-    else if(operator == '=') 
-        eval(document.getElementById('display').value)
-    else 
-        document.getElementById('display').value += operator   
+    let result = document.getElementById('display').value;
+  
+    if (clearAction) 
+        result = ''
+    else if(equalAction) 
+        result = handlingEval(document.getElementById('display').value)
+    else if (!zeroValue && !emptyValue && !endsOperator) 
+        result = document.getElementById('display').value + action   
+
+    document.getElementById('display').value = result
+}
 
 
+function handlingEval(operation) {
+    try {
+        
+       if (eval(operation) == Infinity) {
+            alert('Não é possível fazer divisão por zero')
+            return '0'
+       }
+       return eval(operation)
+
+    } catch(e) {        
+        let clearNumber = operation
+        if (endsWithOperator(clearNumber)){
+            clearNumber = operation.slice(0 , -1)
+        }
+
+        return eval(clearNumber)
+    }
+}
+
+function endsWithOperator(expression){
+    let minus = expression.endsWith('-')
+    let plus = expression.endsWith('+')
+    let time = expression.endsWith('*')
+    let dividedBy = expression.endsWith('/')
+    if (minus || plus || time || dividedBy){
+        return true
+    }
+    return false
 }
