@@ -15,7 +15,7 @@ function getOperation(action){
         result = ''
     else if(equalAction) 
         result = handlingEval(document.getElementById('display').value)
-    else if (!zeroValue && !emptyValue && !endsOperator) 
+    else if (!zeroValue && !emptyValue && !endsinOperator) 
         result = document.getElementById('display').value + action   
 
     document.getElementById('display').value = result
@@ -46,7 +46,8 @@ function endsWithOperator(expression){
     let plus = expression.endsWith('+')
     let time = expression.endsWith('*')
     let dividedBy = expression.endsWith('/')
-    if (minus || plus || time || dividedBy){
+    let point = expression.endsWith('.')
+    if (minus || plus || time || dividedBy || point){
         return true
     }
     return false

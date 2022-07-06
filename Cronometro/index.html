@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=chrome">
+    <meta name="viewport" content="wclassth=device-width, initial-scale=1.0">
+    <title>Cronometro</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@200&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/style/styles.css">
+</head>
+<body>
+    <div id="principal">
+        <div id="ip">
+            <div class="i">Cronometro</div>
+            <div class='i'>Relogio</div>
+        </div>
+        <div id="painel">
+            <div id="numbers">
+                <span id="hour">00</span>:
+                <span id="minutes">00</span>:
+                <span id="seconds">00</span>
+            </div>
+            <div id="buttons">
+                <input class="btn start" onclick="start()" type="button" value="Iniciar">
+                <input class="btn stop" onclick="stop()" type="button" value="Parar">
+                <input class="btn clear" onclick="clearr()" type="button" value="Zerar">
+            </div>
+        </div>
+    </div>
+
+   
+    <script src="assets/js/script.js"></script>
+</body>
